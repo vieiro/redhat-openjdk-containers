@@ -6,9 +6,7 @@ These are the OpenJDK Source to Image (S2I) images for Red Hat OpenShift.
 
 ### From https://access.redhat.com/containers/[Red Hat Container Catalog]
 
- * link:https://catalog.redhat.com/software/containers/ubi9/openjdk-11/61ee7bafed74b2ffb22b07ab[ubi9/openjdk-11]
  * link:https://catalog.redhat.com/software/containers/ubi9/openjdk-17/61ee7c26ed74b2ffb22b07f6[ubi9/openjdk-17]
- * link:https://catalog.redhat.com/software/containers/ubi9/openjdk-11-runtime/61ee7d1c33f211c45407a91c[ubi9/openjdk-11-runtime]
  * link:https://catalog.redhat.com/software/containers/ubi9/openjdk-17-runtime/61ee7d45384a3eb331996bee[ubi9/openjdk-17-runtime]
 
 The UBI9-based OpenJDK images are available under the terms of the
@@ -30,23 +28,11 @@ These sources are prepared and tested for Cekit 4.1.1.
 
 ## Red Hat Universal Base Image 9 versions
 
-### Red Hat Universal Base Image 9 with OpenJDK 11
-
-    cekit --descriptor ubi9-openjdk-11.yaml build podman
-
-This will produce an image named `ubi9/openjdk-11`.
-
 ### Red Hat Universal Base Image 9 with OpenJDK 17
 
     cekit --descriptor ubi9-openjdk-17.yaml build podman
 
 This will produce an image named `ubi9/openjdk-17`.
-
-### Red Hat Universal Base Image 9 with OpenJDK 11 - Runtime
-
-    cekit --descriptor ubi9-openjdk-11-runtime.yaml build podman
-
-This will produce an image named `ubi9/openjdk-11-runtime`.
 
 ### Red Hat Universal Base Image 9 with OpenJDK 17 - Runtime
 
