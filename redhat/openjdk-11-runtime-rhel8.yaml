@@ -4,13 +4,11 @@ osbs:
       compose:
         pulp_repos: true
         packages:
-        - java-11-openjdk
-        - java-11-openjdk-devel
         - java-11-openjdk-headless
         signing_intent: release
   repository:
     name: containers/openjdk
-    branch: openjdk-11-ubi8
+    branch: openjdk-els-11-runtime-rhel-8
 
 packages:
   manager: microdnf
