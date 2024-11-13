@@ -1,7 +1,7 @@
 Feature: Miscellaneous OpenJDK-related unit tests
 
-  @ubi9/openjdk-11
-  @ubi9/openjdk-11-runtime
+  @openjdk-els/openjdk-11-rhel9
+  @openjdk-els/openjdk-11-runtime-rhel9
   Scenario: Check that only OpenJDK 11 is installed
     When container is started with args
     | arg     | value   |
@@ -37,7 +37,7 @@ Feature: Miscellaneous OpenJDK-related unit tests
     | command | bash -c "$JAVA_HOME/bin/java -version" |
     Then available container log should contain OpenJDK Runtime Environment
 
-  @ubi9
+  @openjdk-els
   Scenario: Check that certain non-UBI packages are not installed
     When container is started with args
     | arg     | value   |
@@ -46,8 +46,8 @@ Feature: Miscellaneous OpenJDK-related unit tests
     Then available container log should not contain os-prober
     Then available container log should not contain rpm-plugin-systemd-inhibit
 
-  @ubi9/openjdk-11
-  @ubi9/openjdk-11-runtime
+  @openjdk-els/openjdk-11-rhel9
+  @openjdk-els/openjdk-11-runtime-rhel9
   Scenario: Check that directories from other JDKs are not present (JDK11)
     When container is started with args
     | arg     | value   |
@@ -76,21 +76,21 @@ Feature: Miscellaneous OpenJDK-related unit tests
     Then available container log should not contain java-11
     Then available container log should not contain java-17
 
-  @ubi9
+  @openjdk-els
   Scenario: Ensure LANG is defined and contains UTF-8
     When container is started with args
     | arg     | value                                  |
     | command | bash -c "$JAVA_HOME/bin/java -XshowSettings:properties -version" |
     Then available container log should contain file.encoding = UTF-8
 
-  @ubi9
+  @openjdk-els
   Scenario: Ensure tar is installed (OPENJDK-1165)
     When container is started with args
     | arg     | value |
     | command | tar   |
     Then available container log should not contain command not found
 
-  @ubi9
+  @openjdk-els
   Scenario: Ensure tzdata RPM is properly installed (OPENJDK-2519)
     When container is started with args
     | arg     | value         |
