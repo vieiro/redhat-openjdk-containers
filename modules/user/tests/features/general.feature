@@ -1,6 +1,6 @@
 Feature: Miscellaneous general settings unit tests
 
-  @ubi9
+  @openjdk-els
   Scenario: Check the attributes of /home/default using stat
     When container is started with args
     | arg     | value              |
