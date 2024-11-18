@@ -36,17 +36,17 @@ Feature: Openshift OpenJDK Runtime tests
     | JAVA_APP_DIR | /nope  |
   Then available container log should contain ERROR No directory /nope found for auto detection
   Scenario: Ensure JVM_ARGS is no longer present in the run script
-    Given s2i build https://github.com/jboss-container-images/openjdk-test-applications from undertow-servlet
+    Given s2i build https://github.com/rh-openjdk/openjdk-container-test-applications.git from undertow-servlet
     Then file /usr/local/s2i/run should not contain JVM_ARGS
 
   Scenario: Ensure JAVA_ARGS are passed through to the running java application
-    Given s2i build https://github.com/jboss-container-images/openjdk-test-applications from undertow-servlet
+    Given s2i build https://github.com/rh-openjdk/openjdk-container-test-applications.git from undertow-servlet
        | variable    | value               |
        | JAVA_ARGS   | Hello from CTF test |
     Then container log should contain /deployments/undertow-servlet.jar Hello from CTF test
 
   Scenario: Ensure diagnostic options work correctly
-    Given s2i build https://github.com/jboss-container-images/openjdk-test-applications from undertow-servlet
+    Given s2i build https://github.com/rh-openjdk/openjdk-container-test-applications.git from undertow-servlet
        | variable         | value               |
        | JAVA_ARGS        | Hello from CTF test |
        | JAVA_DIAGNOSTICS | true                |
