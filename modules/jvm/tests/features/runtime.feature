@@ -61,7 +61,7 @@ Feature: Openshift OpenJDK Runtime tests
 
   # Builder images only
   Scenario: Ensure JAVA_APP_DIR and S2I work together (OPENJDK-2034)
-    Given s2i build https://github.com/jboss-container-images/openjdk-test-applications from undertow-servlet
+    Given s2i build https://github.com/rh-openjdk/openjdk-container-test-applications.git from undertow-servlet
        | variable                   | value         |
        | JAVA_APP_DIR               | /home/default |
        | S2I_TARGET_DEPLOYMENTS_DIR | /home/default |

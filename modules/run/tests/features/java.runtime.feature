@@ -4,7 +4,7 @@
 Feature: Openshift OpenJDK Runtime tests (OPENJDK-474)
 
   Scenario: Ensure JAVA_ARGS is passed through, diagnostic options work correctly, JVM_ARGS not present in run script, OPENJDK-474 JAVA_ARGS not repeated
-    Given s2i build https://github.com/jboss-container-images/openjdk-test-applications from undertow-servlet
+    Given s2i build https://github.com/rh-openjdk/openjdk-container-test-applications.git from undertow-servlet
        | variable         | value  |
        | JAVA_ARGS        | unique |
        | JAVA_DIAGNOSTICS | true   |
