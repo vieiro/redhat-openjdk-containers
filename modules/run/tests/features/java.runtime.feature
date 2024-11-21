@@ -1,35 +1,35 @@
 @ubi8/openjdk-8
-@ubi8/openjdk-11
+@openjdk-els/openjdk-11-rhel8
 @ubi8/openjdk-17
 @ubi8/openjdk-21
 Feature: Openshift OpenJDK Runtime tests
-  @ubi8
+  @openjdk-els
   Scenario: Check JAVA_APP_NAME can contain spaces (OPENJDK-104)
     Given container is started with env
     | variable         | value   |
     | JAVA_APP_NAME    | foo bar |
   Then container log should not contain exec: bar': not found
 
-  @ubi8
+  @openjdk-els
   Scenario: Check default JAVA_APP_DIR (OPENJDK-2033)
   When container is ready
   Then available container log should contain INFO running in /deployments
 
-  @ubi8
+  @openjdk-els
   Scenario: Check custom JAVA_APP_DIR (OPENJDK-2033)
     Given container is started with env
     | variable     | value       |
     | JAVA_APP_DIR | /home/jboss |
   Then available container log should contain INFO running in /home/jboss
 
-  @ubi8
+  @openjdk-els
   Scenario: Check relative path JAVA_APP_DIR (OPENJDK-2033)
     Given container is started with env
     | variable     | value  |
     | JAVA_APP_DIR | .      |
   Then available container log should contain INFO running in /home/jboss
 
-  @ubi8
+  @openjdk-els
   Scenario: Check non-existent path JAVA_APP_DIR (OPENJDK-2033)
     Given container is started with env
     | variable     | value  |
@@ -53,7 +53,7 @@ Feature: Openshift OpenJDK Runtime tests
     Then container log should contain /deployments/undertow-servlet.jar Hello from CTF test
       And container log should contain -XX:NativeMemoryTracking=summary
 
-  @ubi8
+  @openjdk-els
   Scenario: OPENJDK-474 to ensure JAVA_ARGS is not duplicated in the java command line
     Given container is started with env
     | variable  | value  |

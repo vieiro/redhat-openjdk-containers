@@ -1,4 +1,4 @@
-@ubi8
+@openjdk-els
 Feature: Openshift OpenJDK GC tests
 
   Scenario: Check default GC configuration

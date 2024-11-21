@@ -1,5 +1,5 @@
 @ubi8/openjdk-8
-@ubi8/openjdk-11
+@openjdk-els/openjdk-11-rhel8
 @ubi8/openjdk-17
 @ubi8/openjdk-21
 Feature: OpenJDK JAVA s2i Runtime tests

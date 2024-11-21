@@ -1,5 +1,5 @@
 # builder only
-@ubi8/openjdk-11
+@openjdk-els/openjdk-11-rhel8
 @ubi8/openjdk-17
 @ubi8/openjdk-21
 Feature: Openshift OpenJDK S2I tests (Quarkus-based)
