@@ -11,8 +11,8 @@ Feature: Miscellaneous OpenJDK-related unit tests
     Then available container log should not contain java-11
     Then available container log should not contain java-17
 
-  @ubi8/openjdk-11
-  @ubi8/openjdk-11-runtime
+  @openjdk-els/openjdk-11-rhel8
+  @openjdk-els/openjdk-11-runtime-rhel8
   Scenario: Check that only OpenJDK 11 is installed
     When container is started with args
     | arg     | value   |
@@ -40,14 +40,14 @@ Feature: Miscellaneous OpenJDK-related unit tests
     Then available container log should not contain java-11
     Then available container log should not contain java-17
 
-  @ubi8
+  @openjdk-els
   Scenario: Ensure JAVA_HOME is defined and contains Java
     When container is started with args
     | arg     | value                                  |
     | command | bash -c "$JAVA_HOME/bin/java -version" |
     Then available container log should contain OpenJDK Runtime Environment
 
-  @ubi8
+  @openjdk-els
   Scenario: Check that certain non-UBI packages are not installed
     When container is started with args
     | arg     | value   |
@@ -64,7 +64,7 @@ Feature: Miscellaneous OpenJDK-related unit tests
     Then available container log should not contain java-11
     And  available container log should not contain java-17
 
-  @ubi8/openjdk-11
+  @openjdk-els/openjdk-11-rhel8
   Scenario: Check that directories from other JDKs are not present (JDK11)
     When container is started with args
     | arg     | value   |
@@ -94,8 +94,8 @@ Feature: Miscellaneous OpenJDK-related unit tests
 
   @ubi8/openjdk-8
   @ubi8/openjdk-8-runtime
-  @ubi8/openjdk-11
-  @ubi8/openjdk-11-runtime
+  @openjdk-els/openjdk-11-rhel8
+  @openjdk-els/openjdk-11-runtime-rhel8
   @ubi8/openjdk-17
   @ubi8/openjdk-17-runtime
   Scenario: Ensure LANG is defined and contains UTF-8
@@ -105,7 +105,7 @@ Feature: Miscellaneous OpenJDK-related unit tests
     Then available container log should contain file.encoding = UTF-8
 
   @ubi8/openjdk-8
-  @ubi8/openjdk-11
+  @openjdk-els/openjdk-11-rhel8
   @ubi8/openjdk-17
   Scenario: Check that transitive weak dependencies are not installed (OPENJDK-1335)
     When container is started with args
@@ -119,14 +119,14 @@ Feature: Miscellaneous OpenJDK-related unit tests
     Then container log should not contain libxkbcommon
     Then container log should not contain kbd
 
-  @ubi8
+  @openjdk-els
   Scenario: Ensure tzdata RPM is properly installed (OPENJDK-2587)
     When container is started with args
     | arg     | value         |
     | command | rpm -V tzdata |
     Then available container log should not contain missing
     
-  @ubi8
+  @openjdk-els
   Scenario: Ensure tar is installed (OPENJDK-2588)
     When container is started with args
     | arg     | value |

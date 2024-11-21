@@ -1,6 +1,6 @@
 Feature: Tests for all openshift images
 
-  @ubi8
+  @openjdk-els
   Scenario: Check that common labels are correctly set
     Given image is built
     # UBI base image versions are the RHEL version, e.g. "9.2", whereas all of
@@ -10,7 +10,7 @@ Feature: Tests for all openshift images
 
   # builder-only test
   @ubi8/openjdk-8
-  @ubi8/openjdk-11
+  @openjdk-els/openjdk-11-rhel8
   @ubi8/openjdk-17
   @ubi8/openjdk-21
   Scenario: Check that builder labels are correctly set
