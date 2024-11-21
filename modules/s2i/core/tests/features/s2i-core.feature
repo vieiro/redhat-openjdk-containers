@@ -16,4 +16,5 @@ Feature: Openshift S2I tests
        | variable                   | value |
        | S2I_TARGET_DEPLOYMENTS_DIR | /var/tmp  |
      Then s2i build log should not contain rsync: [generator] failed to set permissions on "/var/tmp/.": Operation not permitted
+     And  s2i build log should contain appsrc-provided s2i assemble script executed
      And  run stat /var/tmp/spring-boot-sample-simple-1.5.0.BUILD-SNAPSHOT.jar in container and check its output for Access:
