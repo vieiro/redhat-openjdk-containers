@@ -52,7 +52,7 @@ Feature: Openshift OpenJDK Runtime tests
     | JAVA_APP_DIR | .      |
   Then available container log should contain INFO running in /home/default
 
-  @openjdk-els
+  # @openjdk-els
   # temporarily disabled, see https://issues.redhat.com/browse/OPENJDK-3536
   @ignore
   Scenario: Check non-existent path JAVA_APP_DIR (OPENJDK-2034)
